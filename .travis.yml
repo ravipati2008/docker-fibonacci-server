@@ -13,3 +13,9 @@ after_success:
   - docker build -t ravipati2008/fibonacci-nginx ./nginx
   - docker build -t ravipati2008/fibonacci-server ./server
   - docker build -t ravipati2008/fibonacci-worker ./worker
+  # Login to docker cli and push these images to docker hub
+  - echo "$DOCKER_PWD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push ravipati2008/fibonacci-client
+  - docker push ravipati2008/fibonacci-nginx
+  - docker push ravipati2008/fibonacci-server
+  - docker push ravipati2008/fibonacci-worker
