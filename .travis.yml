@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ravipati2008/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true USERNAME/react-test npm test
+
+after_success:
+  - docker build -t ravipati2008/fibonacci-client ./client
+  - docker build -t ravipati2008/fibonacci-nginx ./nginx
+  - docker build -t ravipati2008/fibonacci-server ./server
+  - docker build -t ravipati2008/fibonacci-worker ./worker
