@@ -5,13 +5,13 @@ services:
     mem_limit: 128m
     hostname: api
     environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - PG_USER=postgres
-      - PG_HOST=postgres
-      - PG_DATABASE=postgres
-      - PG_PWD=postgres_password
-      - PG_PORT=5432
+      - REDIS_HOST=$REDIS_HOST
+      - REDIS_PORT=$REDIS_PORT
+      - PG_USER=$PG_USER
+      - PG_HOST=$PG_HOST
+      - PG_DATABASE=$PG_DATABASE
+      - PG_PWD=$PG_PWD
+      - PG_PORT=$PG_PORT
   nginx:
     image: "ravipati2008/fibonacci-nginx"
     mem_limit: 128m
